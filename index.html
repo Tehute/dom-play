@@ -1,1 +1,69 @@
-<h1> Dom play </h1>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dom Play</title>
+    <h3>The purpose of this is to use this webpage as a guide when rehersing a play,
+        When you select on an actor, it highlights all the ones that have same name. 
+        </h3>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+		* {padding:0; margin:0;}
+		html {background-color:#ccc;}
+		body {
+			font-family: sans-serif;
+			max-width:1060px;
+			width:90%;
+			margin:auto; 
+			background-color:rgb(114, 9, 9);
+			padding:20px;
+			min-height:100%; 
+			}
+
+<style>
+
+</style>
+
+</head>
+<body>
+    <h1> DOM play</h1>
+    <div id="play"> 
+        <p><span data-actor="Jessica">Jessica: School is hard, I want to give up?</span></p>
+        <p><span data-actor="Mike">Mike: You only have 4 more weeks, dont give up?</span></p>
+        <p><span data-actor="Jessica">Jessica: I am sick of all the assingments?</span></p>
+        <p><span data-actor="Mike">Mike: It will be worth it, don't stress.</span></p>
+        <p><span data-actor="Jessica">Jessica: You're right, I need to think positive!</span></p>
+        <p><span data-actor="Mike">Mike: Yes, I know you will finish off strong!</span></p>
+        <p><span data-actor="Stacy">Stacy: I agree with Mike, think about how far you've come as well!</span></p>
+    </div>
+    <script>
+        // we're using the CSS decendent selector to acess the spans
+    const spans = document.querySelectorAll('div#play span');
+    
+    console.log(spans);
+
+        for(const mySpan of spans){
+            mySpan.addEventListener("click",function(ev){
+               // alert(mySpan.dataset.actor);
+               highlightActor(mySpan.dataset.actor);
+
+            });
+        }
+          
+
+      function highlightActor(myActor){
+
+        for(const mySpan of spans){
+            
+            if(myActor == mySpan.dataset.actor){
+                mySpan.style.backgroundColor = 'yellow';
+           }else{
+            mySpan.style.backgroundColor = 'white';
+           }
+        }
+
+      }
+ 
+    </script>
+</body>
+
+</html>
